@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #ffe6e6;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff4d4d;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        img, video {
+            max-width: 90%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .button-container {
+            margin: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .yes-btn {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .yes-btn:hover {
+            background-color: #e63939;
+        }
+        .no-btn {
+            background-color: #f2f2f2;
+            color: #333;
+            position: relative;
+        }
+        .no-btn:hover {
+            background-color: #ffcccc;
+        }
+        .jump {
+            position: absolute;
+            animation: jump 0.3s ease;
+        }
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hey Simran, I have something special for you ❤️</h1>
+
+    <p>Here's a little surprise for you...</p>
+
+    <!-- Placeholder for Image/Video -->
+    <img src="https://via.placeholder.com/600x400" alt="A surprise image">
+
+    <!-- Proposal Section -->
+    <h1>Will You Be My Valentine? 💘</h1>
+
+    <div class="button-container">
+        <button class="yes-btn" onclick="yesAnswer()">Yes</button>
+        <button class="no-btn" onclick="noAnswer(this)">No</button>
+    </div>
+
+    <!-- Personalized Ending Section -->
+    <div id="ending" style="display: none;">
+        <h1>Yay! I knew you'd say yes! 💕</h1>
+        <p>This song is for you...</p>
+        <audio controls autoplay>
+            <source src="" type="audio/mpeg"> <!-- Replace with the song link -->
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        function yesAnswer() {
+            document.querySelector('.button-container').style.display = 'none';
+            document.querySelector('#ending').style.display = 'block';
+        }
+
+        function noAnswer(button) {
+            button.classList.add('jump');
+            setTimeout(() => {
+                button.classList.remove('jump');
+                button.style.left = Math.random() * 300 - 150 + 'px'; // Move randomly
+                button.style.top = Math.random() * 200 - 100 + 'px';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
